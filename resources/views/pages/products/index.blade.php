@@ -52,7 +52,8 @@
                                                     class="d-inline">
                                                     @csrf
                                                     @method('delete')
-                                                    <button class="btn btn-danger btn-sm">
+                                                    <button class="btn btn-danger btn-sm"
+                                                        onclick="return confirm('Apakah anda yakin untuk menghapus data ini?')">
                                                         <i class="fa fa-trash"></i>
                                                     </button>
                                                 </form>
