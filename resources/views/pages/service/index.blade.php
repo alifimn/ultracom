@@ -22,11 +22,11 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
-                                        <th>Nama</th>
-                                        <th>Email</th>
-                                        <th>Nomor</th>
-                                        <th>Total Transaksi</th>
+                                        <th>No</th>
+                                        <th>Kategori</th>
+                                        <th>Jumlah</th>
+                                        <th>Catatan</th>
+                                        <th>Pembayaran</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
