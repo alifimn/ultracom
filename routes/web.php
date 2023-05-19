@@ -41,4 +41,9 @@ Route::delete('/products/delete/{id}',[ProductController::class,'destroy'])->nam
 
 Route::get('/service', [ServiceController::class,'index'])->name('service.index');
 
+Route::delete('/services/delete/{id}',[ServiceController::class,'destroy'])->name('services.destroy');
+
+Route::get('/services/{id}/edit', [ServiceController::class,'edit'])->name('services.edit');
+
+Route::put('/services/{id}', [ServiceController::class,'update'])->name('services.update');
 
