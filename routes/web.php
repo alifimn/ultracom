@@ -47,3 +47,6 @@ Route::get('/services/{id}/edit', [ServiceController::class,'edit'])->name('serv
 
 Route::put('/services/{id}', [ServiceController::class,'update'])->name('services.update');
 
+Route::get('/services/{id}', [ServiceController::class,'show'])->name('services.show');
+
+

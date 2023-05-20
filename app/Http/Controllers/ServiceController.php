@@ -64,4 +64,13 @@ class ServiceController extends Controller
         return redirect()->route('service.index');
     }
 
+    public function show($id)
+    {
+        $item = Service::findOrFail($id);
+
+        return view('pages.service.show')->with([
+            'item' => $item,
+        ]);
+    }
+
 }

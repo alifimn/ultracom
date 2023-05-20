@@ -41,6 +41,12 @@
                                             <td>{{ $item->metode_pembayaran }}</td>
                                             <td>{{ $item->status }}</td>
                                             <td>
+                                                <a href="#mymodal" data-remote="{{ route('services.show', $item->id) }}"
+                                                    data-toggle="modal" data-target="#mymodal"
+                                                    data-title="Detail Service {{ $item->id_service }}"
+                                                    class="btn btn-info btn-sm">
+                                                    <i class="fa fa-eye"></i>
+                                                </a>
                                                 <a href="{{ route('services.edit', $item->id) }}"
                                                     class="btn btn-primary btn-sm">
                                                     <i class="fa fa-pencil"></i>
