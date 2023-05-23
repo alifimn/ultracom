@@ -4,6 +4,10 @@
         <td>{{ $item->id_service }}</td>
     </tr>
     <tr>
+        <th>ID User</th>
+        <td>{{ $item->id }}</td>
+    </tr>
+    <tr>
         <th>Kategori</th>
         <td>{{ $item->nama_kategori }}</td>
     </tr>

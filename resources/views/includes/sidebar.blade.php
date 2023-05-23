@@ -34,6 +34,11 @@
                     <li class="{{ request()->is('service') ? 'active' : '' }}">
                         <a href="{{ route('service.index') }}"> <i class="menu-icon fa fa-list"></i>Data Service</a>
                     </li>
+
+                    <li class="menu-title">User</li><!-- /.menu-title -->
+                    <li class="{{ request()->is('user') ? 'active' : '' }}">
+                        <a href="{{ route('user.index') }}"> <i class="menu-icon fa fa-list"></i>Data User</a>
+                    </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>

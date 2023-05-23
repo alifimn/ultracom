@@ -18,4 +18,5 @@ class Service extends Model
     protected $hidden = [
 
     ];
+
 }
