@@ -39,8 +39,30 @@
                                             <td>{{ $item->jml_service }}</td>
                                             <td>{{ $item->catatan_service }}</td>
                                             <td>{{ $item->metode_pembayaran }}</td>
-                                            <td>{{ $item->status }}</td>
                                             <td>
+                                                @if ($item->status == 'PENDING')
+                                                    <span class="badge badge-info">
+                                                    @elseif($item->status == 'SUCCESS')
+                                                        <span class="badge badge-success">
+                                                        @elseif($item->status == 'FAILED')
+                                                            <span class="badge badge-warning">
+                                                            @else
+                                                                <span>
+                                                @endif
+                                                {{ $item->status }}
+                                                </span>
+                                            </td>
+                                            <td>
+                                                @if ($item->status == 'PENDING')
+                                                    <a href="{{ route('service.status', $item->id) }}?status=SUCCESS"
+                                                        class="btn btn-success btn-sm">
+                                                        <i class="fa fa-check"></i>
+                                                    </a>
+                                                    <a href="{{ route('service.status', $item->id) }}?status=FAILED"
+                                                        class="btn btn-warning btn-sm">
+                                                        <i class="fa fa-times"></i>
+                                                    </a>
+                                                @endif
                                                 <a href="#mymodal" data-remote="{{ route('services.show', $item->id) }}"
                                                     data-toggle="modal" data-target="#mymodal"
                                                     data-title="Detail Service {{ $item->id_service }}"

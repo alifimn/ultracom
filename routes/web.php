@@ -49,6 +49,9 @@ Route::get('/services/{id}/edit', [ServiceController::class,'edit'])->name('serv
 
 Route::put('/services/{id}', [ServiceController::class,'update'])->name('services.update');
 
+Route::get('services/{id}/set-status', [ServiceController::class, 'setStatus'])
+    ->name('service.status');
+
 Route::get('/user', [UserMobileController::class,'index'])->name('user.index');
 
 Route::delete('/user/delete/{id}',[UserMobileController::class,'destroy'])->name('user.destroy');

@@ -47,14 +47,6 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="quantity" class="form-control-label">Status</label>
-                    <input type="text" name="status" value="{{ old('status') ? old('status') : $item->status }}"
-                        class="form-control @error('status') is-invalid @enderror" />
-                    @error('status')
-                        <div class="text-muted">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="form-group">
                     <button class="btn btn-primary btn-block" type="submit">
                         Ubah Service
                     </button>

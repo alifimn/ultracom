@@ -72,5 +72,17 @@ class ServiceController extends Controller
             'item' => $item,
         ]);
     }
+    public function setStatus(Request $request, $id)
+    {
+        $request->validate([
+            'status' => 'required|in:PENDING,SUCCESS,FAILED'
+        ]);
 
+        $item = Service::findOrFail($id);
+        $item->status = $request->status;
+
+        $item->save();
+
+        return redirect()->route('service.index');
+    }
 }
