@@ -45,10 +45,6 @@ Route::delete('/services/delete/{id}',[ServiceController::class,'destroy'])->nam
 
 Route::get('/services/{id}', [ServiceController::class,'show'])->name('services.show');
 
-Route::get('/services/{id}/edit', [ServiceController::class,'edit'])->name('services.edit');
-
-Route::put('/services/{id}', [ServiceController::class,'update'])->name('services.update');
-
 Route::get('services/{id}/set-status', [ServiceController::class, 'setStatus'])
     ->name('service.status');
 

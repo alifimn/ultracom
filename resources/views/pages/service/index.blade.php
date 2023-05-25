@@ -69,10 +69,6 @@
                                                     class="btn btn-info btn-sm">
                                                     <i class="fa fa-eye"></i>
                                                 </a>
-                                                <a href="{{ route('services.edit', $item->id) }}"
-                                                    class="btn btn-primary btn-sm">
-                                                    <i class="fa fa-pencil"></i>
-                                                </a>
                                                 <form action="{{ route('services.destroy', $item->id) }}" method="post"
                                                     class="d-inline">
                                                     @csrf

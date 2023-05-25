@@ -44,26 +44,6 @@ class ServiceController extends Controller
         return redirect()->route('service.index');
     }
 
-    public function edit($id)
-    {
-        $item = Service::findOrFail($id);
-
-        return view('pages.service.edit')->with([
-            'item' => $item
-        ]);
-    }
-
-    public function update(ServiceRequest $request, $id)
-    {
-        $data = $request->all();
-        $data['slug'] = Str::slug($request->nama_kategori);
-
-        $item = Service::findOrFail($id);
-        $item->update($data);
-
-        return redirect()->route('service.index');
-    }
-
     public function show($id)
     {
         $item = Service::findOrFail($id);
