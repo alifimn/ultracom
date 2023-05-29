@@ -40,6 +40,47 @@
                     </div>
                 </div>
             </div>
+
+            <!-- user active -->
+            <div class="col-lg-6 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="stat-widget-five">
+                            <div class="stat-icon dib flat-color-3">
+                                <i class="pe-7s-users"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="text-left dib">
+                                    <div class="stat-text"><span class="count">{{ $user }}</span></div>
+                                    <div class="stat-heading">User Aktif</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /user active -->
+
+            <!-- service active -->
+            <div class="col-lg-6 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="stat-widget-five">
+                            <div class="stat-icon dib flat-color-4">
+                                <i class="pe-7s-tools"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="text-left dib">
+                                    <div class="stat-text"><span class="count">{{ $services }}</span></div>
+                                    <div class="stat-heading">Data Service</div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
         <!-- /Widgets -->
         <!--  /Traffic -->
@@ -116,6 +157,67 @@
                 </div> <!-- /.col-md-4 -->
             </div>
         </div>
+        <!-- Service Terbaru -->
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="box-title">Service Terbaru </h4>
+                    </div>
+                    <div class="card-body--">
+                        <div class="table-stats order-table ov-h">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Kategori</th>
+                                        <th>Jumlah</th>
+                                        <th>Catatan</th>
+                                        <th>Pembayaran</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @forelse ($service as $key => $item)
+                                        <tr>
+                                            <td>{{ ++$key }}</td>
+                                            <td>{{ $item->nama_kategori }}</td>
+                                            <td>{{ $item->jml_service }}</td>
+                                            <td>{{ $item->catatan_service }}</td>
+                                            <td>{{ $item->metode_pembayaran }}</td>
+                                            <td>
+                                                @if ($item->status == 'PENDING')
+                                                    <span class="badge badge-info">
+                                                    @elseif($item->status == 'SUCCESS')
+                                                        <span class="badge badge-success">
+                                                        @elseif($item->status == 'FAILED')
+                                                            <span class="badge badge-warning">
+                                                            @else
+                                                                <span>
+                                                @endif
+                                                {{ $item->status }}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td colspan="6" class="text-center p-5">
+                                                Data tidak tersedia
+                                            </td>
+                                        </tr>
+                                    @endforelse
+                                </tbody>
+                            </table>
+                        </div> <!-- /.table-stats -->
+                    </div>
+                </div> <!-- /.card -->
+
+            </div>  <!-- /.col-lg-8 -->
+        </div>
+        <!-- /Service Terbaru -->
+
+
+
         <!-- /.orders -->
         <!-- /#add-category -->
     </div>

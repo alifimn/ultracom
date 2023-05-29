@@ -5,7 +5,7 @@
         <!-- Header -->
         <div class="header bg-gradient-primary py-5 py-lg-6 pt-lg-7">
             <div class="container">
-                <div class="header-body text-center mb-7">
+                <div class="header-body text-center mb-6">
                     <div class="row justify-content-center">
                         <div class="col-xl-5 col-lg-6 col-md-8 px-5">
                             <h1 class="text-white">Ultracom Admin</h1>
@@ -13,11 +13,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="separator separator-bottom separator-skew zindex-100">
-                <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1"
-                    xmlns="http://www.w3.org/2000/svg">
-                </svg>
             </div>
         </div>
         <!-- Page content -->
@@ -31,13 +26,12 @@
                                 @csrf
                                 <div class="form-group">
                                     <div class="input-group input-group-merge input-group-alternative mb-3">
+                                        <p>
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                            <span class="input-group-text"><i class="fa fa-envelope"></i></span>
                                         </div>
-                                        <input id="email" type="email"
-                                            class="form-control @error('email') is-invalid @enderror" name="email"
-                                            value="{{ old('email') }}" required autocomplete="email" autofocus
-                                            placeholder="Email">
+                                        
+                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email">
 
                                         @error('email')
                                             <span class="invalid-feedback" role="alert">
@@ -49,11 +43,9 @@
                                 <div class="form-group">
                                     <div class="input-group input-group-merge input-group-alternative">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                                            <span class="input-group-text"><i class="fa fa-trash"></i></span>
                                         </div>
-                                        <input id="password" type="password"
-                                            class="form-control @error('password') is-invalid @enderror" name="password"
-                                            required autocomplete="current-password" placeholder="Password">
+                                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Password">
 
                                         @error('password')
                                             <span class="invalid-feedback" role="alert">
@@ -65,8 +57,7 @@
                                 <div class="row my-4">
                                     <div class="col-12">
                                         <div>
-                                            <input id="remember" type="checkbox" name="remember"
-                                                {{ old('remember') ? 'checked' : '' }}>
+                                            <input id="remember" type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
                                             <label for="remember">
                                                 <span class="text-muted">Remember me</span>
                                             </label>
@@ -80,9 +71,8 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>
+       @include('sweetalert::alert')
 @endsection

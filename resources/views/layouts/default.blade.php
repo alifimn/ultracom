@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
 
     <!-- style -->
     @stack('before-style')
@@ -31,11 +32,12 @@
 
         <!-- Navbar-->
         @include('includes.navbar')
-
+        
 
         <div class="content">
             <!-- Content -->
             @yield('content')
+            @include('sweetalert::alert')
         </div>
 
         <div class="clearfix"></div>
@@ -43,7 +45,6 @@
 
 
     <!-- Script -->
-    @include('sweetalert::alert')
     @stack('before-script')
     @include('includes.script')
     @stack('after-script')

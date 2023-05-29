@@ -6,6 +6,7 @@ use App\Models\Transaction;
 use App\Models\TransactionDetail;
 
 use Illuminate\Http\Request;
+use Alert;
 
 class TransactionController extends Controller
 {
@@ -96,6 +97,8 @@ class TransactionController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
+
+        Alert::success('Success', 'Data Transaksi Berhasil Diubah');
 
         $item = Transaction::findOrFail($id);
         $item->update($data);

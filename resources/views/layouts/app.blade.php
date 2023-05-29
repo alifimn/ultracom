@@ -15,11 +15,14 @@
     <!-- Page plugins -->
     <!-- Argon CSS -->
     <link rel="stylesheet" href="{{ asset('css/argon.css?v=1.2.0') }}" type="text/css">
+    
+    
 </head>
 
 <body class="bg-default">
 
     @yield('content')
+    @include('sweetalert::alert')
 
     <!-- Argon Scripts -->
     <!-- Core -->
@@ -28,8 +31,9 @@
     <script src="{{ asset('vendor/js-cookie/js.cookie.js') }}"></script>
     <script src="{{ asset('vendor/jquery.scrollbar/jquery.scrollbar.min.js') }}"></script>
     <script src="{{ asset('vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js') }}"></script>
-    <script src="{{ asset('vendor/jquery.form/dist/jquery.form.js') }}"></script>
-    <script src="{{ asset('vendor/sweetalert2/dist/sweetalert2.min.js') }}"></script>
+    
+    <!-- Optional JS -->
+    <script src="{{ asset('vendor/sw') }}"></script>
     <!-- Argon JS -->
     <script src="{{ asset('js/argon.js?v=1.2.0') }}"></script>
 </body>

@@ -8,6 +8,7 @@ use App\Http\Requests\ProductRequest;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Alert;
 
 class ProductController extends Controller
 {
@@ -20,19 +21,15 @@ class ProductController extends Controller
     {
         $this->middleware('auth');
     }
-
+    
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $keyword = $request->keyword;
-        $items = Product::where('name', 'LIKE', '%'.$keyword.'%')
-        ->orWhere('price', $keyword)
-        ->orWhere('type', 'LIKE', '%'.$keyword.'%')
-        ->paginate(15);
+        $items = Product::all();
 
         return view('pages.products.index')->with([
             'items' => $items
@@ -60,6 +57,8 @@ class ProductController extends Controller
         $data = $request->all();
         $data['slug'] = Str::slug($request->name);
 
+
+        Alert::success('Sukses', 'Barang Berhasil Ditambahkan');
         Product::create($data);
         return redirect()->route('products.index');
     }
@@ -85,6 +84,7 @@ class ProductController extends Controller
     {
         $item = Product::findOrFail($id);
 
+
         return view('pages.products.edit')->with([
             'item' => $item
         ]);
@@ -105,6 +105,7 @@ class ProductController extends Controller
         $item = Product::findOrFail($id);
         $item->update($data);
 
+        Alert::success('Sukses', 'Barang Berhasil Ditambahkan');
         return redirect()->route('products.index');
     }
 
@@ -119,7 +120,9 @@ class ProductController extends Controller
         $item = Product::findOrFail($id);
         $item->delete();
 
+
         ProductGallery::where('products_id', $id)->delete();
+        
 
         return redirect()->route('products.index');
     }

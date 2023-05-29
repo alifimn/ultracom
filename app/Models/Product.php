@@ -14,7 +14,7 @@ class Product extends Model
     ];
 
     protected $hidden = [
-
+        
     ];
 
     public function galleries()
